@@ -16,7 +16,7 @@ curl \
 
 
 // Helidon SE
-curl --cacert ${CERTIFICATES_FOLDER}/ca.crt https://localhost:7070/greet | jq <-- WORKING for one way TLS
+curl --cacert ${CERTIFICATES_FOLDER}/ca.crt https://localhost:7070 | jq <-- WORKING for one way TLS
 
 curl \
 	--cacert ${CERTIFICATES_FOLDER}/ca.crt \

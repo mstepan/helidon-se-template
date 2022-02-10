@@ -71,3 +71,24 @@ openssl x509 \
   -days 365 \
   -out client.crt
 ```
+
+## Add ca.crt to JVM root CA
+
+* Covert to DER format
+```
+openssl x509 -in ca.crt -inform pem -out ca.der -outform der
+```
+
+* Validate converted file
+```
+keytool -v -printcert -file ca.der
+```
+
+* Import to JVM
+
+```
+sudo keytool -importcert -alias my-ca -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -file ca.der
+sudo keytool -keystore "$JAVA_HOME/lib/security/cacerts" -storepass changeit -list | grep my-ca 
+```
+
+
