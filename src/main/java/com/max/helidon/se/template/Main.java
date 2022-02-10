@@ -52,7 +52,7 @@ public final class Main {
         // Try to start the server. If successful, print some info and arrange to
         // print a message at shutdown. If unsuccessful, print the exception.
         webserver.thenAccept(ws -> {
-                    System.out.println("WEB server is up! http://localhost:" + ws.port() + "/greet");
+                    System.out.println("WEB server is up! https://localhost:" + ws.port());
                     ws.whenShutdown().thenRun(() -> System.out.println("WEB server is DOWN. Good bye!"));
                 })
                 .exceptionallyAccept(t -> {
@@ -80,7 +80,7 @@ public final class Main {
         return Routing.builder()
                 .register(health)                   // Health at "/health"
                 .register(metrics)                  // Metrics at "/metrics"
-                .register("/greet", echoService)
+                .register("/", echoService)
                 .build();
     }
 }

@@ -15,6 +15,11 @@ openssl req \
   -out ca.crt
 ```
 
+* Add CA to MacOS root certificates:
+```
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" ca.crt
+```
+
 You can check certificate content
 ```
 openssl x509 -text -noout -in ca.crt
