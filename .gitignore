@@ -1,0 +1,30 @@
+.idea/
+*.iml
+target/
+dependency-reduced-pom.xml
+.DS_Store
+docker/.env
+/input_ocibuild/
+/output_ocibuild*
+
+# local run scripts
+run-docker.sh
+run.sh
+#
+ObjectStore/
+
+# application local configuration
+microprofile-config-local.properties
+
+# Wallet files
+Wallet_FHIRdb/
+
+# HTTP access logs files
+api-service-http-access.*
+
+# OCI docker config and private key
+oci-docker
+
+# Structured logs folder
+logs/
+

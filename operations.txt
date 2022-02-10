@@ -1,0 +1,28 @@
+
+// some tracing
+openssl s_client -connect localhost:7070 -tls1_2 -status -msg -debug \
+	-CAfile /Users/mstepan/healthcare/helidon-se-template/certificates2/ca.crt \
+	-key /Users/mstepan/healthcare/helidon-se-template/certificates2/client.key \
+	-cert /Users/mstepan/healthcare/helidon-se-template/certificates2/client.crt
+
+// Node.js application
+curl \
+	--cacert ca.crt \
+	--key client.key \
+	--cert client.crt \
+	https://localhost:7070  | jq
+
+
+// Helidon SE
+curl https://localhost:7070/greet | jq <-- FAILED, this expected
+
+curl --cacert ca.crt https://localhost:7070/greet | jq <-- WORKING
+
+curl \
+	--cacert ca.crt \
+	--key client.key \
+	--cert client.crt \
+	-vvv https://localhost:7070/greet  | jq
+
+
+

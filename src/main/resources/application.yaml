@@ -1,0 +1,18 @@
+app:
+  message: "Hello, "
+
+server:
+  port: 7070
+  tls:
+    # possible values REQUIRE | NONE
+    client-auth: "REQUIRE"
+    trust:
+      pem-cert-chain-path: "/Users/mstepan/healthcare/helidon-se-template/certificates2/ca.crt"
+    private-key:
+      pem-key-path: "/Users/mstepan/healthcare/helidon-se-template/certificates2/server.key"
+      pem-cert-chain-path: "/Users/mstepan/healthcare/helidon-se-template/certificates2/server.crt"
+
+
+#  server.tls.private-key.pem-cert-chain-path=/Users/mstepan/healthcare/fhir-api-service/certificates2/server.crt
+#  server.tls.private-key.pem-key-path=/Users/mstepan/healthcare/fhir-api-service/certificates2/server.key
+#  server.tls.trust.pem-cert-chain-path=/Users/mstepan/healthcare/fhir-api-service/certificates2/ca.crt
